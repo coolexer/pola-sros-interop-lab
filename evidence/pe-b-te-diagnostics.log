@@ -1,0 +1,1086 @@
+A:admin@pe-b# environment more false
+
+[/]
+A:admin@pe-b# show router mpls interface
+
+===============================================================================
+MPLS Interfaces
+===============================================================================
+Interface                           Port-id           Adm  Opr(V4/V6) TE-
+                                                                      metric
+-------------------------------------------------------------------------------
+system                              system            Up   Up/Up      None
+  Admin Groups                      None
+  SRLG Groups                       None
+to-p1                               1/1/c1/1          Up   Up/Up      5
+  Admin Groups                      None
+  SRLG Groups                       None
+to-p2                               1/1/c2/1          Up   Up/Up      90
+  Admin Groups                      None
+  SRLG Groups                       None
+-------------------------------------------------------------------------------
+Interfaces : 3
+===============================================================================
+
+[/]
+A:admin@pe-b# show router rsvp interface
+
+===============================================================================
+RSVP Interfaces
+===============================================================================
+Interface                        Total    Active    Total BW  Resv BW   Adm Opr
+                                 Sessions Sessions  (Mbps)    (Mbps)
+-------------------------------------------------------------------------------
+system                           -        -         -         -         Dwn Dwn
+to-p1                            0        0         100000    0         Up  Dwn
+to-p2                            0        0         100000    0         Up  Dwn
+-------------------------------------------------------------------------------
+Interfaces : 3
+===============================================================================
+
+[/]
+A:admin@pe-b# show router bgp routes bgp-ls hunt link
+===============================================================================
+ BGP Router ID:192.0.2.4        AS:64512       Local AS:64512
+===============================================================================
+ Legend -
+ Status codes  : u - used, s - suppressed, h - history, d - decayed, * - valid
+                 l - leaked, x - stale, > - best, b - backup, p - purge,
+                 w - unused-weight-only
+ Origin codes  : i - IGP, e - EGP, ? - incomplete
+
+===============================================================================
+BGP-LS Link NLRIs
+===============================================================================
+-------------------------------------------------------------------------------
+RIB In Entries
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+RIB Out Entries
+-------------------------------------------------------------------------------
+Network:
+ Type          : LINK-NLRI
+ Protocol      : ISIS Level-2           Identifier     : 0x1
+ Local Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002003
+ Remote Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002004
+ Link descriptor:
+  IPV4 Interface Addr: 198.51.100.6
+  IPV4 Neighbor Addr : 198.51.100.7
+  IPV6 Interface Addr: 2001:db8:47:4::
+  IPV6 Neighbor Addr : 2001:db8:47:4::1
+Nexthop        : 198.18.2.1
+To             : 198.18.2.2
+Res. Nexthop   : n/a
+Local Pref.    : 100                    Interface Name : NotAvailable
+Aggregator AS  : None                   Aggregator     : None
+Atomic Aggr.   : Not Atomic             MED            : None
+AIGP Metric    : None                   IGP Cost       : n/a
+Connector      : None
+Community      : No Community Members
+Cluster        : No Cluster Members
+Originator Id  : None                   Peer Router Id : 198.18.2.2
+Origin         : IGP
+AS-Path        : No As-Path
+Route Tag      : 0
+Neighbor-AS    : n/a
+DB Orig Val    : N/A                    Final Orig Val : N/A
+Source Class   : 0                      Dest Class     : 0
+-------------------------------------------------------------------------------
+Link State Attribute TLVs :
+ IGP Metric : 30
+ Adjacency Segment Identifier (Adj-SID) :  flags 0x30 weight 0 label 524283
+ Adjacency Segment Identifier (Adj-SID) :  flags 0xb0 weight 0 label 524282
+ SRV6 End.X SID :  Flags 0x20 Algo 0 weight 0 epBhvr 53 sid fd47:4700:3:4001::
+ SRV6 SID Structure : lbLen 32 lnLen 16 funLen 16 argLen 64
+ Unidirectional Link Delay Min/Max : MIN 1000 MAX 1000
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+Network:
+ Type          : LINK-NLRI
+ Protocol      : ISIS Level-2           Identifier     : 0x1
+ Local Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002002
+ Remote Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002004
+ Link descriptor:
+  IPV4 Interface Addr: 198.51.100.2
+  IPV4 Neighbor Addr : 198.51.100.3
+  IPV6 Interface Addr: 2001:db8:47:2::
+  IPV6 Neighbor Addr : 2001:db8:47:2::1
+Nexthop        : 198.18.2.1
+To             : 198.18.2.2
+Res. Nexthop   : n/a
+Local Pref.    : 100                    Interface Name : NotAvailable
+Aggregator AS  : None                   Aggregator     : None
+Atomic Aggr.   : Not Atomic             MED            : None
+AIGP Metric    : None                   IGP Cost       : n/a
+Connector      : None
+Community      : No Community Members
+Cluster        : No Cluster Members
+Originator Id  : None                   Peer Router Id : 198.18.2.2
+Origin         : IGP
+AS-Path        : No As-Path
+Route Tag      : 0
+Neighbor-AS    : n/a
+DB Orig Val    : N/A                    Final Orig Val : N/A
+Source Class   : 0                      Dest Class     : 0
+-------------------------------------------------------------------------------
+Link State Attribute TLVs :
+ IGP Metric : 10
+ Adjacency Segment Identifier (Adj-SID) :  flags 0x30 weight 0 label 524283
+ Adjacency Segment Identifier (Adj-SID) :  flags 0xb0 weight 0 label 524282
+ SRV6 End.X SID :  Flags 0x20 Algo 0 weight 0 epBhvr 53 sid fd47:4700:2:4001::
+ SRV6 SID Structure : lbLen 32 lnLen 16 funLen 16 argLen 64
+ Unidirectional Link Delay Min/Max : MIN 9000 MAX 9000
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+Network:
+ Type          : LINK-NLRI
+ Protocol      : ISIS Level-2           Identifier     : 0x1
+ Local Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002001
+ Remote Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002002
+ Link descriptor:
+  IPV4 Interface Addr: 198.51.100.0
+  IPV4 Neighbor Addr : 198.51.100.1
+  IPV6 Interface Addr: 2001:db8:47:1::
+  IPV6 Neighbor Addr : 2001:db8:47:1::1
+Nexthop        : 198.18.2.1
+To             : 198.18.2.2
+Res. Nexthop   : n/a
+Local Pref.    : 100                    Interface Name : NotAvailable
+Aggregator AS  : None                   Aggregator     : None
+Atomic Aggr.   : Not Atomic             MED            : None
+AIGP Metric    : None                   IGP Cost       : n/a
+Connector      : None
+Community      : No Community Members
+Cluster        : No Cluster Members
+Originator Id  : None                   Peer Router Id : 198.18.2.2
+Origin         : IGP
+AS-Path        : No As-Path
+Route Tag      : 0
+Neighbor-AS    : n/a
+DB Orig Val    : N/A                    Final Orig Val : N/A
+Source Class   : 0                      Dest Class     : 0
+-------------------------------------------------------------------------------
+Link State Attribute TLVs :
+ IGP Metric : 10
+ Adjacency Segment Identifier (Adj-SID) :  flags 0x30 weight 0 label 524285
+ Adjacency Segment Identifier (Adj-SID) :  flags 0xb0 weight 0 label 524284
+ SRV6 End.X SID :  Flags 0x20 Algo 0 weight 0 epBhvr 53 sid fd47:4700:1:4000::
+ SRV6 SID Structure : lbLen 32 lnLen 16 funLen 16 argLen 64
+ Unidirectional Link Delay Min/Max : MIN 9000 MAX 9000
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+Network:
+ Type          : LINK-NLRI
+ Protocol      : ISIS Level-2           Identifier     : 0x1
+ Local Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002004
+ Remote Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002003
+ Link descriptor:
+  IPV4 Interface Addr: 198.51.100.7
+  IPV4 Neighbor Addr : 198.51.100.6
+  IPV6 Interface Addr: 2001:db8:47:4::1
+  IPV6 Neighbor Addr : 2001:db8:47:4::
+Nexthop        : 198.18.2.1
+To             : 198.18.2.2
+Res. Nexthop   : n/a
+Local Pref.    : 100                    Interface Name : NotAvailable
+Aggregator AS  : None                   Aggregator     : None
+Atomic Aggr.   : Not Atomic             MED            : None
+AIGP Metric    : None                   IGP Cost       : n/a
+Connector      : None
+Community      : No Community Members
+Cluster        : No Cluster Members
+Originator Id  : None                   Peer Router Id : 198.18.2.2
+Origin         : IGP
+AS-Path        : No As-Path
+Route Tag      : 0
+Neighbor-AS    : n/a
+DB Orig Val    : N/A                    Final Orig Val : N/A
+Source Class   : 0                      Dest Class     : 0
+-------------------------------------------------------------------------------
+Link State Attribute TLVs :
+ IGP Metric : 30
+ Adjacency Segment Identifier (Adj-SID) :  flags 0x30 weight 0 label 524287
+ Adjacency Segment Identifier (Adj-SID) :  flags 0xb0 weight 0 label 524286
+ SRV6 End.X SID :  Flags 0x20 Algo 0 weight 0 epBhvr 53 sid fd47:4700:4:4001::
+ SRV6 SID Structure : lbLen 32 lnLen 16 funLen 16 argLen 64
+ Unidirectional Link Delay Min/Max : MIN 1000 MAX 1000
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+Network:
+ Type          : LINK-NLRI
+ Protocol      : ISIS Level-2           Identifier     : 0x1
+ Local Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002004
+ Remote Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002002
+ Link descriptor:
+  IPV4 Interface Addr: 198.51.100.3
+  IPV4 Neighbor Addr : 198.51.100.2
+  IPV6 Interface Addr: 2001:db8:47:2::1
+  IPV6 Neighbor Addr : 2001:db8:47:2::
+Nexthop        : 198.18.2.1
+To             : 198.18.2.2
+Res. Nexthop   : n/a
+Local Pref.    : 100                    Interface Name : NotAvailable
+Aggregator AS  : None                   Aggregator     : None
+Atomic Aggr.   : Not Atomic             MED            : None
+AIGP Metric    : None                   IGP Cost       : n/a
+Connector      : None
+Community      : No Community Members
+Cluster        : No Cluster Members
+Originator Id  : None                   Peer Router Id : 198.18.2.2
+Origin         : IGP
+AS-Path        : No As-Path
+Route Tag      : 0
+Neighbor-AS    : n/a
+DB Orig Val    : N/A                    Final Orig Val : N/A
+Source Class   : 0                      Dest Class     : 0
+-------------------------------------------------------------------------------
+Link State Attribute TLVs :
+ IGP Metric : 10
+ Adjacency Segment Identifier (Adj-SID) :  flags 0x30 weight 0 label 524285
+ Adjacency Segment Identifier (Adj-SID) :  flags 0xb0 weight 0 label 524284
+ SRV6 End.X SID :  Flags 0x20 Algo 0 weight 0 epBhvr 53 sid fd47:4700:4:4000::
+ SRV6 SID Structure : lbLen 32 lnLen 16 funLen 16 argLen 64
+ Unidirectional Link Delay Min/Max : MIN 9000 MAX 9000
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+Network:
+ Type          : LINK-NLRI
+ Protocol      : ISIS Level-2           Identifier     : 0x1
+ Local Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002002
+ Remote Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002003
+ Link descriptor:
+  IPV4 Interface Addr: 198.51.100.8
+  IPV4 Neighbor Addr : 198.51.100.9
+  IPV6 Interface Addr: 2001:db8:47:5::
+  IPV6 Neighbor Addr : 2001:db8:47:5::1
+Nexthop        : 198.18.2.1
+To             : 198.18.2.2
+Res. Nexthop   : n/a
+Local Pref.    : 100                    Interface Name : NotAvailable
+Aggregator AS  : None                   Aggregator     : None
+Atomic Aggr.   : Not Atomic             MED            : None
+AIGP Metric    : None                   IGP Cost       : n/a
+Connector      : None
+Community      : No Community Members
+Cluster        : No Cluster Members
+Originator Id  : None                   Peer Router Id : 198.18.2.2
+Origin         : IGP
+AS-Path        : No As-Path
+Route Tag      : 0
+Neighbor-AS    : n/a
+DB Orig Val    : N/A                    Final Orig Val : N/A
+Source Class   : 0                      Dest Class     : 0
+-------------------------------------------------------------------------------
+Link State Attribute TLVs :
+ IGP Metric : 40
+ Adjacency Segment Identifier (Adj-SID) :  flags 0x30 weight 0 label 524285
+ Adjacency Segment Identifier (Adj-SID) :  flags 0xb0 weight 0 label 524284
+ SRV6 End.X SID :  Flags 0x20 Algo 0 weight 0 epBhvr 53 sid fd47:4700:2:4002::
+ SRV6 SID Structure : lbLen 32 lnLen 16 funLen 16 argLen 64
+ Unidirectional Link Delay Min/Max : MIN 20000 MAX 20000
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+Network:
+ Type          : LINK-NLRI
+ Protocol      : ISIS Level-2           Identifier     : 0x1
+ Local Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002001
+ Remote Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002003
+ Link descriptor:
+  IPV4 Interface Addr: 198.51.100.4
+  IPV4 Neighbor Addr : 198.51.100.5
+  IPV6 Interface Addr: 2001:db8:47:3::
+  IPV6 Neighbor Addr : 2001:db8:47:3::1
+Nexthop        : 198.18.2.1
+To             : 198.18.2.2
+Res. Nexthop   : n/a
+Local Pref.    : 100                    Interface Name : NotAvailable
+Aggregator AS  : None                   Aggregator     : None
+Atomic Aggr.   : Not Atomic             MED            : None
+AIGP Metric    : None                   IGP Cost       : n/a
+Connector      : None
+Community      : No Community Members
+Cluster        : No Cluster Members
+Originator Id  : None                   Peer Router Id : 198.18.2.2
+Origin         : IGP
+AS-Path        : No As-Path
+Route Tag      : 0
+Neighbor-AS    : n/a
+DB Orig Val    : N/A                    Final Orig Val : N/A
+Source Class   : 0                      Dest Class     : 0
+-------------------------------------------------------------------------------
+Link State Attribute TLVs :
+ IGP Metric : 30
+ Adjacency Segment Identifier (Adj-SID) :  flags 0x30 weight 0 label 524287
+ Adjacency Segment Identifier (Adj-SID) :  flags 0xb0 weight 0 label 524286
+ SRV6 End.X SID :  Flags 0x20 Algo 0 weight 0 epBhvr 53 sid fd47:4700:1:4001::
+ SRV6 SID Structure : lbLen 32 lnLen 16 funLen 16 argLen 64
+ Unidirectional Link Delay Min/Max : MIN 1000 MAX 1000
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+Network:
+ Type          : LINK-NLRI
+ Protocol      : ISIS Level-2           Identifier     : 0x1
+ Local Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002003
+ Remote Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002002
+ Link descriptor:
+  IPV4 Interface Addr: 198.51.100.9
+  IPV4 Neighbor Addr : 198.51.100.8
+  IPV6 Interface Addr: 2001:db8:47:5::1
+  IPV6 Neighbor Addr : 2001:db8:47:5::
+Nexthop        : 198.18.2.1
+To             : 198.18.2.2
+Res. Nexthop   : n/a
+Local Pref.    : 100                    Interface Name : NotAvailable
+Aggregator AS  : None                   Aggregator     : None
+Atomic Aggr.   : Not Atomic             MED            : None
+AIGP Metric    : None                   IGP Cost       : n/a
+Connector      : None
+Community      : No Community Members
+Cluster        : No Cluster Members
+Originator Id  : None                   Peer Router Id : 198.18.2.2
+Origin         : IGP
+AS-Path        : No As-Path
+Route Tag      : 0
+Neighbor-AS    : n/a
+DB Orig Val    : N/A                    Final Orig Val : N/A
+Source Class   : 0                      Dest Class     : 0
+-------------------------------------------------------------------------------
+Link State Attribute TLVs :
+ IGP Metric : 40
+ Adjacency Segment Identifier (Adj-SID) :  flags 0x30 weight 0 label 524285
+ Adjacency Segment Identifier (Adj-SID) :  flags 0xb0 weight 0 label 524284
+ SRV6 End.X SID :  Flags 0x20 Algo 0 weight 0 epBhvr 53 sid fd47:4700:3:4002::
+ SRV6 SID Structure : lbLen 32 lnLen 16 funLen 16 argLen 64
+ Unidirectional Link Delay Min/Max : MIN 20000 MAX 20000
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+Network:
+ Type          : LINK-NLRI
+ Protocol      : ISIS Level-2           Identifier     : 0x1
+ Local Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002003
+ Remote Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002001
+ Link descriptor:
+  IPV4 Interface Addr: 198.51.100.5
+  IPV4 Neighbor Addr : 198.51.100.4
+  IPV6 Interface Addr: 2001:db8:47:3::1
+  IPV6 Neighbor Addr : 2001:db8:47:3::
+Nexthop        : 198.18.2.1
+To             : 198.18.2.2
+Res. Nexthop   : n/a
+Local Pref.    : 100                    Interface Name : NotAvailable
+Aggregator AS  : None                   Aggregator     : None
+Atomic Aggr.   : Not Atomic             MED            : None
+AIGP Metric    : None                   IGP Cost       : n/a
+Connector      : None
+Community      : No Community Members
+Cluster        : No Cluster Members
+Originator Id  : None                   Peer Router Id : 198.18.2.2
+Origin         : IGP
+AS-Path        : No As-Path
+Route Tag      : 0
+Neighbor-AS    : n/a
+DB Orig Val    : N/A                    Final Orig Val : N/A
+Source Class   : 0                      Dest Class     : 0
+-------------------------------------------------------------------------------
+Link State Attribute TLVs :
+ IGP Metric : 30
+ Adjacency Segment Identifier (Adj-SID) :  flags 0x30 weight 0 label 524287
+ Adjacency Segment Identifier (Adj-SID) :  flags 0xb0 weight 0 label 524286
+ SRV6 End.X SID :  Flags 0x20 Algo 0 weight 0 epBhvr 53 sid fd47:4700:3:4000::
+ SRV6 SID Structure : lbLen 32 lnLen 16 funLen 16 argLen 64
+ Unidirectional Link Delay Min/Max : MIN 1000 MAX 1000
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+
+Network:
+ Type          : LINK-NLRI
+ Protocol      : ISIS Level-2           Identifier     : 0x1
+ Local Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002002
+ Remote Node descriptor:
+  Autonomous System  : 0.0.252.0
+  Link State Id      : 1
+  IGP Router Id      : 0x192000002001
+ Link descriptor:
+  IPV4 Interface Addr: 198.51.100.1
+  IPV4 Neighbor Addr : 198.51.100.0
+  IPV6 Interface Addr: 2001:db8:47:1::1
+  IPV6 Neighbor Addr : 2001:db8:47:1::
+Nexthop        : 198.18.2.1
+To             : 198.18.2.2
+Res. Nexthop   : n/a
+Local Pref.    : 100                    Interface Name : NotAvailable
+Aggregator AS  : None                   Aggregator     : None
+Atomic Aggr.   : Not Atomic             MED            : None
+AIGP Metric    : None                   IGP Cost       : n/a
+Connector      : None
+Community      : No Community Members
+Cluster        : No Cluster Members
+Originator Id  : None                   Peer Router Id : 198.18.2.2
+Origin         : IGP
+AS-Path        : No As-Path
+Route Tag      : 0
+Neighbor-AS    : n/a
+DB Orig Val    : N/A                    Final Orig Val : N/A
+Source Class   : 0                      Dest Class     : 0
+-------------------------------------------------------------------------------
+Link State Attribute TLVs :
+ IGP Metric : 10
+ Adjacency Segment Identifier (Adj-SID) :  flags 0x30 weight 0 label 524287
+ Adjacency Segment Identifier (Adj-SID) :  flags 0xb0 weight 0 label 524286
+ SRV6 End.X SID :  Flags 0x20 Algo 0 weight 0 epBhvr 53 sid fd47:4700:2:4000::
+ SRV6 SID Structure : lbLen 32 lnLen 16 funLen 16 argLen 64
+ Unidirectional Link Delay Min/Max : MIN 9000 MAX 9000
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+Routes : 10
+===============================================================================
+
+[/]
+A:admin@pe-b# show router isis database detail
+
+===============================================================================
+Rtr Base ISIS Instance 0 Database (detail)
+===============================================================================
+
+Displaying Level 1 database
+-------------------------------------------------------------------------------
+Level (1) LSP Count : 0
+
+Displaying Level 2 database
+-------------------------------------------------------------------------------
+LSP ID    : pe-a.00-00                                  Level     : L2
+Sequence  : 0xe                    Checksum  : 0xb278   Lifetime  : 859
+Version   : 1                      Pkt Type  : 20       Pkt Ver   : 1
+Attributes: L1L2                   Max Area  : 3        Alloc Len : 610
+SYS ID    : 1920.0000.2001         SysID Len : 6        Used Len  : 610
+
+TLVs :
+  Area Addresses:
+    Area Address : (3) 49.0001
+  Supp Protocols:
+    Protocols     : IPv4
+    Protocols     : IPv6
+  IS-Hostname   : pe-a
+  Router ID   :
+    Router ID   : 192.0.2.1
+  TE Router ID v6  :
+    Router ID   : 2001:db8:47::1
+  Router Cap : 192.0.2.1, D:0, S:0
+    TE Node Cap : B E M  P
+    SR Cap: IPv4 MPLS-IPv6
+       SRGB Base:16000, Range:8000
+    SR Alg: metric based SPF
+    Node MSD Cap: BMI : 12 ERLD : 15 SRH-MAX-SL : 10 SRH-MAX-END-POP : 9 SRH-MAX-H-ENCAPS : 7 SRH-MAX-END-D : 9
+    SRv6 Cap: 0x0000
+  IS Neighbors  :
+    Virtual Flag  : 0
+    Default Metric: (I) 30
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    Neighbor      : p2.00
+  IS Neighbors  :
+    Virtual Flag  : 0
+    Default Metric: (I) 10
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    Neighbor      : p1.00
+  Internal Reach:
+    Default Metric: (I) 10
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 198.51.100.0
+    IP Mask       : 255.255.255.254
+    Default Metric: (I) 0
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 192.0.2.1
+    IP Mask       : 255.255.255.255
+    Default Metric: (I) 30
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 198.51.100.4
+    IP Mask       : 255.255.255.254
+  IPv6 Reach:
+    Metric: ( IS) 0
+    Prefix   : 2001:db8:47::1/128
+    Sub TLV   :
+      Prefix-SID Index:11, Algo:0, Flags:NnP
+    Metric: ( I ) 10
+    Prefix   : 2001:db8:47:1::/127
+    Metric: ( I ) 30
+    Prefix   : 2001:db8:47:3::/127
+    Metric: ( I ) 0
+    Prefix   : fd47:4700:1::/48
+    Metric: ( I ) 0
+    Prefix   : 2001:db8:471:1::/64
+  I/F Addresses :
+    I/F Address   : 198.51.100.0
+    I/F Address   : 192.0.2.1
+    I/F Address   : 198.51.100.4
+  I/F Addresses IPv6 :
+    IPv6 Address    : 2001:db8:47::1
+    IPv6 Address    : 2001:db8:47:1::
+    IPv6 Address    : 2001:db8:47:3::
+  TE IS Nbrs   :
+    Nbr   : p2.00
+    Default Metric  : 30
+    Sub TLV Len     : 102
+    IF Addr   : 198.51.100.4
+    IPv6 Addr : 2001:db8:47:3::
+    Nbr IP    : 198.51.100.5
+    Nbr IPv6  : 2001:db8:47:3::1
+    Delay Min : 1000 Max : 1000
+    Adj-SID: Flags:v4VL Weight:0 Label:524287
+    Adj-SID: Flags:v6VL Weight:0 Label:524286
+    End.X-SID: fd47:4700:1:4001:: flags:P algo:0 weight:0 endpoint:End.X-NXT-CSID-PSP lbLen:32 lnLen:16 funLen:16 argLen:64
+  TE IS Nbrs   :
+    Nbr   : p1.00
+    Default Metric  : 10
+    Sub TLV Len     : 102
+    IF Addr   : 198.51.100.0
+    IPv6 Addr : 2001:db8:47:1::
+    Nbr IP    : 198.51.100.1
+    Nbr IPv6  : 2001:db8:47:1::1
+    Delay Min : 9000 Max : 9000
+    Adj-SID: Flags:v4VL Weight:0 Label:524285
+    Adj-SID: Flags:v6VL Weight:0 Label:524284
+    End.X-SID: fd47:4700:1:4000:: flags:P algo:0 weight:0 endpoint:End.X-NXT-CSID-PSP lbLen:32 lnLen:16 funLen:16 argLen:64
+  TE IP Reach   :
+    Default Metric  : 10
+    Control Info:    , prefLen 31
+    Prefix   : 198.51.100.0
+    Default Metric  : 0
+    Control Info:   S, prefLen 32
+    Prefix   : 192.0.2.1
+    Sub TLV   :
+      Prefix-SID Index:1, Algo:0, Flags:NnP
+    Default Metric  : 30
+    Control Info:    , prefLen 31
+    Prefix   : 198.51.100.4
+
+-------------------------------------------------------------------------------
+LSP ID    : p1.00-00                                    Level     : L2
+Sequence  : 0x16                   Checksum  : 0xbc24   Lifetime  : 1135
+Version   : 1                      Pkt Type  : 20       Pkt Ver   : 1
+Attributes: L1L2                   Max Area  : 3        Alloc Len : 800
+SYS ID    : 1920.0000.2002         SysID Len : 6        Used Len  : 800
+
+TLVs :
+  Area Addresses:
+    Area Address : (3) 49.0001
+  Supp Protocols:
+    Protocols     : IPv4
+    Protocols     : IPv6
+  IS-Hostname   : p1
+  Router ID   :
+    Router ID   : 192.0.2.2
+  TE Router ID v6  :
+    Router ID   : 2001:db8:47::2
+  Router Cap : 192.0.2.2, D:0, S:0
+    TE Node Cap : B E M  P
+    SR Cap: IPv4 MPLS-IPv6
+       SRGB Base:16000, Range:8000
+    SR Alg: metric based SPF
+    Node MSD Cap: BMI : 12 ERLD : 15 SRH-MAX-SL : 10 SRH-MAX-END-POP : 9 SRH-MAX-H-ENCAPS : 7 SRH-MAX-END-D : 9
+    SRv6 Cap: 0x0000
+  IS Neighbors  :
+    Virtual Flag  : 0
+    Default Metric: (I) 10
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    Neighbor      : pe-a.00
+  IS Neighbors  :
+    Virtual Flag  : 0
+    Default Metric: (I) 40
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    Neighbor      : p2.00
+  IS Neighbors  :
+    Virtual Flag  : 0
+    Default Metric: (I) 10
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    Neighbor      : pe-b.00
+  Internal Reach:
+    Default Metric: (I) 10
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 198.51.100.0
+    IP Mask       : 255.255.255.254
+    Default Metric: (I) 0
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 192.0.2.2
+    IP Mask       : 255.255.255.255
+    Default Metric: (I) 10
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 198.51.100.2
+    IP Mask       : 255.255.255.254
+    Default Metric: (I) 40
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 198.51.100.8
+    IP Mask       : 255.255.255.254
+  IPv6 Reach:
+    Metric: ( IS) 0
+    Prefix   : 2001:db8:47::2/128
+    Sub TLV   :
+      Prefix-SID Index:12, Algo:0, Flags:NnP
+    Metric: ( I ) 10
+    Prefix   : 2001:db8:47:1::/127
+    Metric: ( I ) 10
+    Prefix   : 2001:db8:47:2::/127
+    Metric: ( I ) 40
+    Prefix   : 2001:db8:47:5::/127
+    Metric: ( I ) 0
+    Prefix   : 2001:db8:471:2::/64
+    Metric: ( I ) 0
+    Prefix   : fd47:4700:2::/48
+  I/F Addresses :
+    I/F Address   : 198.51.100.1
+    I/F Address   : 192.0.2.2
+    I/F Address   : 198.51.100.2
+    I/F Address   : 198.51.100.8
+  I/F Addresses IPv6 :
+    IPv6 Address    : 2001:db8:47::2
+    IPv6 Address    : 2001:db8:47:1::1
+    IPv6 Address    : 2001:db8:47:2::
+    IPv6 Address    : 2001:db8:47:5::
+  TE IS Nbrs   :
+    Nbr   : pe-a.00
+    Default Metric  : 10
+    Sub TLV Len     : 102
+    IF Addr   : 198.51.100.1
+    IPv6 Addr : 2001:db8:47:1::1
+    Nbr IP    : 198.51.100.0
+    Nbr IPv6  : 2001:db8:47:1::
+    Delay Min : 9000 Max : 9000
+    Adj-SID: Flags:v4VL Weight:0 Label:524287
+    Adj-SID: Flags:v6VL Weight:0 Label:524286
+    End.X-SID: fd47:4700:2:4000:: flags:P algo:0 weight:0 endpoint:End.X-NXT-CSID-PSP lbLen:32 lnLen:16 funLen:16 argLen:64
+  TE IS Nbrs   :
+    Nbr   : p2.00
+    Default Metric  : 40
+    Sub TLV Len     : 102
+    IF Addr   : 198.51.100.8
+    IPv6 Addr : 2001:db8:47:5::
+    Nbr IP    : 198.51.100.9
+    Nbr IPv6  : 2001:db8:47:5::1
+    Delay Min : 20000 Max : 20000
+    Adj-SID: Flags:v4VL Weight:0 Label:524285
+    Adj-SID: Flags:v6VL Weight:0 Label:524284
+    End.X-SID: fd47:4700:2:4002:: flags:P algo:0 weight:0 endpoint:End.X-NXT-CSID-PSP lbLen:32 lnLen:16 funLen:16 argLen:64
+  TE IS Nbrs   :
+    Nbr   : pe-b.00
+    Default Metric  : 10
+    Sub TLV Len     : 102
+    IF Addr   : 198.51.100.2
+    IPv6 Addr : 2001:db8:47:2::
+    Nbr IP    : 198.51.100.3
+    Nbr IPv6  : 2001:db8:47:2::1
+    Delay Min : 9000 Max : 9000
+    Adj-SID: Flags:v4VL Weight:0 Label:524283
+    Adj-SID: Flags:v6VL Weight:0 Label:524282
+    End.X-SID: fd47:4700:2:4001:: flags:P algo:0 weight:0 endpoint:End.X-NXT-CSID-PSP lbLen:32 lnLen:16 funLen:16 argLen:64
+  TE IP Reach   :
+    Default Metric  : 10
+    Control Info:    , prefLen 31
+    Prefix   : 198.51.100.0
+    Default Metric  : 0
+    Control Info:   S, prefLen 32
+    Prefix   : 192.0.2.2
+    Sub TLV   :
+      Prefix-SID Index:2, Algo:0, Flags:NnP
+    Default Metric  : 10
+    Control Info:    , prefLen 31
+    Prefix   : 198.51.100.2
+    Default Metric  : 40
+    Control Info:    , prefLen 31
+    Prefix   : 198.51.100.8
+
+-------------------------------------------------------------------------------
+LSP ID    : p2.00-00                                    Level     : L2
+Sequence  : 0xe                    Checksum  : 0xef64   Lifetime  : 859
+Version   : 1                      Pkt Type  : 20       Pkt Ver   : 1
+Attributes: L1L2                   Max Area  : 3        Alloc Len : 800
+SYS ID    : 1920.0000.2003         SysID Len : 6        Used Len  : 800
+
+TLVs :
+  Area Addresses:
+    Area Address : (3) 49.0001
+  Supp Protocols:
+    Protocols     : IPv4
+    Protocols     : IPv6
+  IS-Hostname   : p2
+  Router ID   :
+    Router ID   : 192.0.2.3
+  TE Router ID v6  :
+    Router ID   : 2001:db8:47::3
+  Router Cap : 192.0.2.3, D:0, S:0
+    TE Node Cap : B E M  P
+    SR Cap: IPv4 MPLS-IPv6
+       SRGB Base:16000, Range:8000
+    SR Alg: metric based SPF
+    Node MSD Cap: BMI : 12 ERLD : 15 SRH-MAX-SL : 10 SRH-MAX-END-POP : 9 SRH-MAX-H-ENCAPS : 7 SRH-MAX-END-D : 9
+    SRv6 Cap: 0x0000
+  IS Neighbors  :
+    Virtual Flag  : 0
+    Default Metric: (I) 30
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    Neighbor      : pe-a.00
+  IS Neighbors  :
+    Virtual Flag  : 0
+    Default Metric: (I) 40
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    Neighbor      : p1.00
+  IS Neighbors  :
+    Virtual Flag  : 0
+    Default Metric: (I) 30
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    Neighbor      : pe-b.00
+  Internal Reach:
+    Default Metric: (I) 0
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 192.0.2.3
+    IP Mask       : 255.255.255.255
+    Default Metric: (I) 30
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 198.51.100.4
+    IP Mask       : 255.255.255.254
+    Default Metric: (I) 30
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 198.51.100.6
+    IP Mask       : 255.255.255.254
+    Default Metric: (I) 40
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 198.51.100.8
+    IP Mask       : 255.255.255.254
+  IPv6 Reach:
+    Metric: ( IS) 0
+    Prefix   : 2001:db8:47::3/128
+    Sub TLV   :
+      Prefix-SID Index:13, Algo:0, Flags:NnP
+    Metric: ( I ) 30
+    Prefix   : 2001:db8:47:3::/127
+    Metric: ( I ) 30
+    Prefix   : 2001:db8:47:4::/127
+    Metric: ( I ) 40
+    Prefix   : 2001:db8:47:5::/127
+    Metric: ( I ) 0
+    Prefix   : 2001:db8:471:3::/64
+    Metric: ( I ) 0
+    Prefix   : fd47:4700:3::/48
+  I/F Addresses :
+    I/F Address   : 192.0.2.3
+    I/F Address   : 198.51.100.5
+    I/F Address   : 198.51.100.6
+    I/F Address   : 198.51.100.9
+  I/F Addresses IPv6 :
+    IPv6 Address    : 2001:db8:47::3
+    IPv6 Address    : 2001:db8:47:3::1
+    IPv6 Address    : 2001:db8:47:4::
+    IPv6 Address    : 2001:db8:47:5::1
+  TE IS Nbrs   :
+    Nbr   : pe-a.00
+    Default Metric  : 30
+    Sub TLV Len     : 102
+    IF Addr   : 198.51.100.5
+    IPv6 Addr : 2001:db8:47:3::1
+    Nbr IP    : 198.51.100.4
+    Nbr IPv6  : 2001:db8:47:3::
+    Delay Min : 1000 Max : 1000
+    Adj-SID: Flags:v4VL Weight:0 Label:524287
+    Adj-SID: Flags:v6VL Weight:0 Label:524286
+    End.X-SID: fd47:4700:3:4000:: flags:P algo:0 weight:0 endpoint:End.X-NXT-CSID-PSP lbLen:32 lnLen:16 funLen:16 argLen:64
+  TE IS Nbrs   :
+    Nbr   : p1.00
+    Default Metric  : 40
+    Sub TLV Len     : 102
+    IF Addr   : 198.51.100.9
+    IPv6 Addr : 2001:db8:47:5::1
+    Nbr IP    : 198.51.100.8
+    Nbr IPv6  : 2001:db8:47:5::
+    Delay Min : 20000 Max : 20000
+    Adj-SID: Flags:v4VL Weight:0 Label:524285
+    Adj-SID: Flags:v6VL Weight:0 Label:524284
+    End.X-SID: fd47:4700:3:4002:: flags:P algo:0 weight:0 endpoint:End.X-NXT-CSID-PSP lbLen:32 lnLen:16 funLen:16 argLen:64
+  TE IS Nbrs   :
+    Nbr   : pe-b.00
+    Default Metric  : 30
+    Sub TLV Len     : 102
+    IF Addr   : 198.51.100.6
+    IPv6 Addr : 2001:db8:47:4::
+    Nbr IP    : 198.51.100.7
+    Nbr IPv6  : 2001:db8:47:4::1
+    Delay Min : 1000 Max : 1000
+    Adj-SID: Flags:v4VL Weight:0 Label:524283
+    Adj-SID: Flags:v6VL Weight:0 Label:524282
+    End.X-SID: fd47:4700:3:4001:: flags:P algo:0 weight:0 endpoint:End.X-NXT-CSID-PSP lbLen:32 lnLen:16 funLen:16 argLen:64
+  TE IP Reach   :
+    Default Metric  : 0
+    Control Info:   S, prefLen 32
+    Prefix   : 192.0.2.3
+    Sub TLV   :
+      Prefix-SID Index:3, Algo:0, Flags:NnP
+    Default Metric  : 30
+    Control Info:    , prefLen 31
+    Prefix   : 198.51.100.4
+    Default Metric  : 30
+    Control Info:    , prefLen 31
+    Prefix   : 198.51.100.6
+    Default Metric  : 40
+    Control Info:    , prefLen 31
+    Prefix   : 198.51.100.8
+
+-------------------------------------------------------------------------------
+LSP ID    : pe-b.00-00                                  Level     : L2
+Sequence  : 0x12                   Checksum  : 0xcf09   Lifetime  : 1130
+Version   : 1                      Pkt Type  : 20       Pkt Ver   : 1
+Attributes: L1L2                   Max Area  : 3        Alloc Len : 1492
+SYS ID    : 1920.0000.2004         SysID Len : 6        Used Len  : 610
+
+TLVs :
+  Area Addresses:
+    Area Address : (3) 49.0001
+  Supp Protocols:
+    Protocols     : IPv4
+    Protocols     : IPv6
+  IS-Hostname   : pe-b
+  Router ID   :
+    Router ID   : 192.0.2.4
+  TE Router ID v6  :
+    Router ID   : 2001:db8:47::4
+  Router Cap : 192.0.2.4, D:0, S:0
+    TE Node Cap : B E M  P
+    SR Cap: IPv4 MPLS-IPv6
+       SRGB Base:16000, Range:8000
+    SR Alg: metric based SPF
+    Node MSD Cap: BMI : 12 ERLD : 15 SRH-MAX-SL : 10 SRH-MAX-END-POP : 9 SRH-MAX-H-ENCAPS : 7 SRH-MAX-END-D : 9
+    SRv6 Cap: 0x0000
+  IS Neighbors  :
+    Virtual Flag  : 0
+    Default Metric: (I) 30
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    Neighbor      : p2.00
+  IS Neighbors  :
+    Virtual Flag  : 0
+    Default Metric: (I) 10
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    Neighbor      : p1.00
+  Internal Reach:
+    Default Metric: (I) 10
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 198.51.100.2
+    IP Mask       : 255.255.255.254
+    Default Metric: (I) 0
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 192.0.2.4
+    IP Mask       : 255.255.255.255
+    Default Metric: (I) 30
+    Delay Metric  : (I) 0
+    Expense Metric: (I) 0
+    Error Metric  : (I) 0
+    IP Address    : 198.51.100.6
+    IP Mask       : 255.255.255.254
+  IPv6 Reach:
+    Metric: ( IS) 0
+    Prefix   : 2001:db8:47::4/128
+    Sub TLV   :
+      Prefix-SID Index:14, Algo:0, Flags:NnP
+    Metric: ( I ) 10
+    Prefix   : 2001:db8:47:2::/127
+    Metric: ( I ) 30
+    Prefix   : 2001:db8:47:4::/127
+    Metric: ( I ) 0
+    Prefix   : 2001:db8:471:4::/64
+    Metric: ( I ) 0
+    Prefix   : fd47:4700:4::/48
+  I/F Addresses :
+    I/F Address   : 198.51.100.3
+    I/F Address   : 192.0.2.4
+    I/F Address   : 198.51.100.7
+  I/F Addresses IPv6 :
+    IPv6 Address    : 2001:db8:47::4
+    IPv6 Address    : 2001:db8:47:2::1
+    IPv6 Address    : 2001:db8:47:4::1
+  TE IS Nbrs   :
+    Nbr   : p2.00
+    Default Metric  : 30
+    Sub TLV Len     : 102
+    IF Addr   : 198.51.100.7
+    IPv6 Addr : 2001:db8:47:4::1
+    Nbr IP    : 198.51.100.6
+    Nbr IPv6  : 2001:db8:47:4::
+    Delay Min : 1000 Max : 1000
+    Adj-SID: Flags:v4VL Weight:0 Label:524287
+    Adj-SID: Flags:v6VL Weight:0 Label:524286
+    End.X-SID: fd47:4700:4:4001:: flags:P algo:0 weight:0 endpoint:End.X-NXT-CSID-PSP lbLen:32 lnLen:16 funLen:16 argLen:64
+  TE IS Nbrs   :
+    Nbr   : p1.00
+    Default Metric  : 10
+    Sub TLV Len     : 102
+    IF Addr   : 198.51.100.3
+    IPv6 Addr : 2001:db8:47:2::1
+    Nbr IP    : 198.51.100.2
+    Nbr IPv6  : 2001:db8:47:2::
+    Delay Min : 9000 Max : 9000
+    Adj-SID: Flags:v4VL Weight:0 Label:524285
+    Adj-SID: Flags:v6VL Weight:0 Label:524284
+    End.X-SID: fd47:4700:4:4000:: flags:P algo:0 weight:0 endpoint:End.X-NXT-CSID-PSP lbLen:32 lnLen:16 funLen:16 argLen:64
+  TE IP Reach   :
+    Default Metric  : 10
+    Control Info:    , prefLen 31
+    Prefix   : 198.51.100.2
+    Default Metric  : 0
+    Control Info:   S, prefLen 32
+    Prefix   : 192.0.2.4
+    Sub TLV   :
+      Prefix-SID Index:4, Algo:0, Flags:NnP
+    Default Metric  : 30
+    Control Info:    , prefLen 31
+    Prefix   : 198.51.100.6
+
+Level (2) LSP Count : 4
+-------------------------------------------------------------------------------
+Control Info     : D = Prefix Leaked Down
+                   S = Sub-TLVs Present
+Attribute Flags  : N = Node Flag
+                   R = Re-advertisement Flag
+                   X = External Prefix Flag
+                   E = Entropy Label Capability (ELC) Flag
+Adj-SID Flags    : v4/v6 = IPv4 or IPv6 Address-Family
+                   B = Backup Flag
+                   V = Adj-SID carries a value
+                   L = value/index has local significance
+                   S = Set of Adjacencies
+                   P = Persistently allocated
+Prefix-SID Flags : R = Re-advertisement Flag
+                   N = Node-SID Flag
+                   nP = no penultimate hop POP
+                   E = Explicit-Null Flag
+                   V = Prefix-SID carries a value
+                   L = value/index has local significance
+Lbl-Binding Flags: v4/v6 = IPv4 or IPv6 Address-Family
+                   M = Mirror Context Flag
+                   S = SID/Label Binding flooding
+                   D = Prefix Leaked Down
+                   A = Attached Flag
+SABM-flags Flags:  R = RSVP-TE
+                   S = SR-TE
+                   F = LFA
+                   X = FLEX-ALGO
+FAD-flags Flags:   M = Prefix Metric
+===============================================================================
+
+[/]
+A:admin@pe-b# logout

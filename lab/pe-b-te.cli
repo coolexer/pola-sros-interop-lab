@@ -1,0 +1,11 @@
+environment more false
+configure exclusive
+/configure router "Base" isis 0 traffic-engineering true
+/configure router "Base" isis 0 traffic-engineering-options ipv6 true
+/configure router "Base" ipv6-te-router-id interface "system"
+/configure router "Base" isis 0 traffic-engineering-options advertise-delay true
+/configure router "Base" isis 0 interface "system" ipv6-node-sid index 14
+commit
+exit all
+show router isis status
+logout

@@ -1,0 +1,70 @@
+environment more false
+configure exclusive
+/configure router "Base" mpls-labels reserved-label-block "POLA-BSID" start-label 24500
+/configure router "Base" mpls-labels reserved-label-block "POLA-BSID" end-label 24519
+/configure router "Base" segment-routing sr-policies reserved-label-block "POLA-BSID"
+/configure router "Base" segment-routing sr-policies admin-state enable
+/configure router "Base" segment-routing sr-policies static-policy "MPLS101" color 101
+/configure router "Base" segment-routing sr-policies static-policy "MPLS101" endpoint 192.0.2.4
+/configure router "Base" segment-routing sr-policies static-policy "MPLS101" head-end local
+/configure router "Base" segment-routing sr-policies static-policy "MPLS101" preference 100
+/configure router "Base" segment-routing sr-policies static-policy "MPLS101" distinguisher 101
+/configure router "Base" segment-routing sr-policies static-policy "MPLS101" binding-sid 24501
+/configure router "Base" segment-routing sr-policies static-policy "MPLS101" segment-list 1 segment 1 mpls-label 16003
+/configure router "Base" segment-routing sr-policies static-policy "MPLS101" segment-list 1 segment 2 mpls-label 16004
+/configure router "Base" segment-routing sr-policies static-policy "MPLS101" segment-list 1 admin-state enable
+/configure router "Base" segment-routing sr-policies static-policy "MPLS101" pce-report true
+/configure router "Base" segment-routing sr-policies static-policy "MPLS101" admin-state enable
+/configure router "Base" segment-routing sr-policies static-policy "MPLS102" color 102
+/configure router "Base" segment-routing sr-policies static-policy "MPLS102" endpoint 2001:db8:47:0::4
+/configure router "Base" segment-routing sr-policies static-policy "MPLS102" head-end local
+/configure router "Base" segment-routing sr-policies static-policy "MPLS102" preference 100
+/configure router "Base" segment-routing sr-policies static-policy "MPLS102" distinguisher 102
+/configure router "Base" segment-routing sr-policies static-policy "MPLS102" binding-sid 24502
+/configure router "Base" segment-routing sr-policies static-policy "MPLS102" segment-list 1 segment 1 mpls-label 16003
+/configure router "Base" segment-routing sr-policies static-policy "MPLS102" segment-list 1 segment 2 mpls-label 16004
+/configure router "Base" segment-routing sr-policies static-policy "MPLS102" segment-list 1 admin-state enable
+/configure router "Base" segment-routing sr-policies static-policy "MPLS102" pce-report true
+/configure router "Base" segment-routing sr-policies static-policy "MPLS102" admin-state enable
+/configure router "Base" segment-routing sr-policies static-policy "FULL201" color 201
+/configure router "Base" segment-routing sr-policies static-policy "FULL201" endpoint 2001:db8:47:0::4
+/configure router "Base" segment-routing sr-policies static-policy "FULL201" head-end local
+/configure router "Base" segment-routing sr-policies static-policy "FULL201" preference 100
+/configure router "Base" segment-routing sr-policies static-policy "FULL201" distinguisher 201
+/configure router "Base" segment-routing sr-policies static-policy "FULL201" type srv6
+/configure router "Base" segment-routing sr-policies static-policy "FULL201" segment-routing-v6 binding-sid 1 locator locator-name "FULL"
+/configure router "Base" segment-routing sr-policies static-policy "FULL201" segment-routing-v6 binding-sid 1 locator function end-b6-encaps-red
+/configure router "Base" segment-routing sr-policies static-policy "FULL201" segment-list 1 segment 1 srv6-sid 2001:db8:471:3:1::
+/configure router "Base" segment-routing sr-policies static-policy "FULL201" segment-list 1 admin-state enable
+/configure router "Base" segment-routing sr-policies static-policy "FULL201" pce-report true
+/configure router "Base" segment-routing sr-policies static-policy "FULL201" admin-state enable
+/configure router "Base" segment-routing sr-policies static-policy "USID301" color 301
+/configure router "Base" segment-routing sr-policies static-policy "USID301" endpoint 2001:db8:47:0::4
+/configure router "Base" segment-routing sr-policies static-policy "USID301" head-end local
+/configure router "Base" segment-routing sr-policies static-policy "USID301" preference 100
+/configure router "Base" segment-routing sr-policies static-policy "USID301" distinguisher 301
+/configure router "Base" segment-routing sr-policies static-policy "USID301" type srv6
+/configure router "Base" segment-routing sr-policies static-policy "USID301" segment-routing-v6 binding-sid 1 micro-segment-locator locator-name "MICRO"
+/configure router "Base" segment-routing sr-policies static-policy "USID301" segment-routing-v6 binding-sid 1 micro-segment-locator function end-b6-encaps-red-next-csid
+/configure router "Base" segment-routing sr-policies static-policy "USID301" segment-list 1 segment 1 srv6-sid fd47:4700:3::
+/configure router "Base" segment-routing sr-policies static-policy "USID301" segment-list 1 segment 1 behavior-and-structure behavior end-next-csid
+/configure router "Base" segment-routing sr-policies static-policy "USID301" segment-list 1 segment 1 behavior-and-structure block-length 32
+/configure router "Base" segment-routing sr-policies static-policy "USID301" segment-list 1 segment 1 behavior-and-structure node-length 16
+/configure router "Base" segment-routing sr-policies static-policy "USID301" segment-list 1 segment 1 behavior-and-structure function-length 0
+/configure router "Base" segment-routing sr-policies static-policy "USID301" segment-list 1 admin-state enable
+/configure router "Base" segment-routing sr-policies static-policy "USID301" pce-report true
+/configure router "Base" segment-routing sr-policies static-policy "USID301" admin-state enable
+/configure router "Base" segment-routing sr-policies static-policy "DYNAMIC103" color 103
+/configure router "Base" segment-routing sr-policies static-policy "DYNAMIC103" endpoint 192.0.2.4
+/configure router "Base" segment-routing sr-policies static-policy "DYNAMIC103" head-end local
+/configure router "Base" segment-routing sr-policies static-policy "DYNAMIC103" preference 100
+/configure router "Base" segment-routing sr-policies static-policy "DYNAMIC103" distinguisher 103
+/configure router "Base" segment-routing sr-policies static-policy "DYNAMIC103" binding-sid 24503
+/configure router "Base" segment-routing sr-policies static-policy "DYNAMIC103" dynamic path-computation-method pce
+/configure router "Base" segment-routing sr-policies static-policy "DYNAMIC103" dynamic optimization-objective metric-type igp
+/configure router "Base" segment-routing sr-policies static-policy "DYNAMIC103" admin-state enable
+commit
+exit all
+show router segment-routing sr-policies all
+show router pcep pcc peer
+logout

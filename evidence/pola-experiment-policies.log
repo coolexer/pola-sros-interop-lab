@@ -1,0 +1,46 @@
+Session: 198.18.1.1 (State: up, LSP-DB Sync: finished)
+  PolicyName: 192.0.2.1:101:192.0.2.4::MPLS101
+    PlspID: 13
+    LSPID: 2
+    State: active
+    Headend: 192.0.2.1 (1920.0000.2001)
+    Endpoint: 192.0.2.4 (1920.0000.2004)
+    Color: 101
+    Preference: 100
+    SegmentList: 16003 -> 16004
+  PolicyName: 2001:db8:47::1:102:2001:db8:47::4::MPLS102
+    PlspID: 3
+    LSPID: 2
+    State: active
+    Headend: 2001:db8:47::1 (1920.0000.2001)
+    Endpoint: 2001:db8:47::4 (1920.0000.2004)
+    Color: 102
+    Preference: 100
+    SegmentList: 16003 -> 16004
+  PolicyName: 192.0.2.1:103:192.0.2.4::DYNAMIC103
+    PlspID: 15
+    LSPID: 2
+    State: active
+    Headend: 192.0.2.1 (1920.0000.2001)
+    Endpoint: 192.0.2.4 (1920.0000.2004)
+    Color: 103
+    Preference: 100
+    SegmentList: 16002 -> 16004
+  PolicyName: 2001:db8:47::1:201:2001:db8:47::4::FULL201
+    PlspID: 12
+    LSPID: 2
+    State: active
+    Headend: 2001:db8:47::1 (1920.0000.2001)
+    Endpoint: 2001:db8:47::4 (1920.0000.2004)
+    Color: 201
+    Preference: 100
+    SegmentList: 2001:db8:471:3:1::
+  PolicyName: 2001:db8:47::1:301:2001:db8:47::4::USID301
+    PlspID: 14
+    LSPID: 2
+    State: active
+    Headend: 2001:db8:47::1 (1920.0000.2001)
+    Endpoint: 2001:db8:47::4 (1920.0000.2004)
+    Color: 301
+    Preference: 100
+    SegmentList: fd47:4700:3:: (behavior=UN)

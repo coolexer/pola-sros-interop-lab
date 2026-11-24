@@ -1,0 +1,18 @@
+global:
+  pcep:
+    address: "::"
+    port: 4189
+  grpcServer:
+    address: "127.0.0.1"
+    port: 50052
+  log:
+    path: "/var/log/pola/"
+    name: "polad.log"
+  ted:
+    enable: true
+    source: "gobgp"
+    asn: 64512
+  gobgp:
+    grpcClient:
+      address: "172.30.47.21"
+      port: 50051

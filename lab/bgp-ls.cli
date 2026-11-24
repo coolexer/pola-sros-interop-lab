@@ -1,0 +1,15 @@
+environment more false
+configure exclusive
+/configure router "Base" isis 0 database-export igp-identifier 1
+/configure router "Base" isis 0 database-export bgp-ls-identifier value 1
+/configure router "Base" bgp router-id 192.0.2.4
+/configure router "Base" bgp link-state-route-export true
+/configure router "Base" bgp link-state-route-import true
+/configure router "Base" bgp group "GOBGP" peer-as 64512
+/configure router "Base" bgp group "GOBGP" local-address 198.18.2.1
+/configure router "Base" bgp group "GOBGP" family bgp-ls true
+/configure router "Base" bgp neighbor "198.18.2.2" group "GOBGP"
+commit
+exit all
+show router bgp summary
+logout

@@ -1,0 +1,9 @@
+environment more false
+configure exclusive
+/configure router "Base" rsvp admin-state enable
+/configure router "Base" rsvp interface "to-pe1" admin-state enable
+/configure router "Base" rsvp interface "to-pe2" admin-state enable
+/configure router "Base" rsvp interface "to-p2" admin-state enable
+commit
+exit all
+logout

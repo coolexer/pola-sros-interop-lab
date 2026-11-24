@@ -1,0 +1,3 @@
+up expected=10 observed=10
+down expected=8 observed=8
+restored expected=10 observed=10

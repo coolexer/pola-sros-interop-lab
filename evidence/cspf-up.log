@@ -1,0 +1,16 @@
+TED nodes=4 directed-links=10
+ipv4/sr-mpls igp direct segments=16002,16004
+ipv4/sr-mpls te direct error=metric METRIC_TYPE_TE not defined
+ipv4/sr-mpls hopcount direct segments=16003,16004
+ipv4/sr-mpls delay direct error=metric METRIC_TYPE_DELAY not defined
+ipv4/sr-mpls igp via-p2 segments=16003,16004
+ipv6/sr-mpls igp direct segments=16012,16014
+ipv6/sr-mpls te direct error=metric METRIC_TYPE_TE not defined
+ipv6/sr-mpls hopcount direct segments=16013,16014
+ipv6/sr-mpls delay direct error=metric METRIC_TYPE_DELAY not defined
+ipv6/sr-mpls igp via-p2 segments=16013,16014
+ipv6/srv6 igp direct error=node doesn't have a Node SID
+ipv6/srv6 te direct error=node doesn't have a Node SID
+ipv6/srv6 hopcount direct error=node doesn't have a Node SID
+ipv6/srv6 delay direct error=node doesn't have a Node SID
+ipv6/srv6 igp via-p2 error=CSPF failed between 1920.0000.2001 and 1920.0000.2003: node doesn't have a Node SID

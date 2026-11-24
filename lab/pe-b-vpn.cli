@@ -1,0 +1,78 @@
+environment more false
+configure exclusive
+/configure router "Base" mpls-labels reserved-label-block "SRV6-FULL" start-label 26000
+/configure router "Base" mpls-labels reserved-label-block "SRV6-FULL" end-label 26063
+/configure router "Base" mpls-labels reserved-label-block "SRV6-MICRO" start-label 26100
+/configure router "Base" mpls-labels reserved-label-block "SRV6-MICRO" end-label 26163
+/configure router "Base" segment-routing segment-routing-v6 locator "FULL" label-block "SRV6-FULL"
+/configure router "Base" segment-routing segment-routing-v6 micro-segment block "USID" label-block "SRV6-MICRO"
+/configure router "Base" bgp group "VPN4" peer-as 64512
+/configure router "Base" bgp group "VPN4" family vpn-ipv4 true
+/configure router "Base" bgp neighbor 192.0.2.1 group "VPN4"
+/configure router "Base" bgp neighbor 192.0.2.1 local-address 192.0.2.4
+/configure router "Base" bgp group "VPN6" peer-as 64512
+/configure router "Base" bgp group "VPN6" family vpn-ipv6 true
+/configure router "Base" bgp group "VPN6" advertise-ipv6-next-hops vpn-ipv6 true
+/configure router "Base" bgp neighbor 2001:db8:47::1 group "VPN6"
+/configure router "Base" bgp neighbor 2001:db8:47::1 local-address 2001:db8:47::4
+/configure service vprn "VPN-MPLS" service-id 300
+/configure service vprn "VPN-MPLS" customer "1"
+/configure service vprn "VPN-MPLS" bgp-ipvpn mpls route-distinguisher "192.0.2.4:300"
+/configure service vprn "VPN-MPLS" bgp-ipvpn mpls vrf-target community "target:64512:300"
+/configure service vprn "VPN-MPLS" bgp-ipvpn mpls auto-bind-tunnel resolution filter
+/configure service vprn "VPN-MPLS" bgp-ipvpn mpls auto-bind-tunnel resolution-filter sr-isis true
+/configure service vprn "VPN-MPLS" bgp-ipvpn mpls auto-bind-tunnel resolution-filter sr-policy true
+/configure service vprn "VPN-MPLS" interface "HOST" ipv4 primary address 203.0.113.65
+/configure service vprn "VPN-MPLS" interface "HOST" ipv4 primary prefix-length 26
+/configure policy-options community "RT300" member "target:64512:300"
+/configure policy-options community "C300" member "color:00:101"
+/configure policy-options policy-statement "EXPORT300" default-action action-type accept
+/configure policy-options policy-statement "EXPORT300" default-action community add ["RT300" "C300"]
+/configure service vprn "VPN-MPLS" bgp-ipvpn mpls vrf-export policy ["EXPORT300"]
+/configure service vprn "VPN-MPLS" bgp-ipvpn mpls admin-state enable
+/configure service vprn "VPN-MPLS" interface "HOST" sap 1/1/c3/1:300
+/configure service vprn "VPN-MPLS" interface "HOST" admin-state enable
+/configure service vprn "VPN-MPLS" admin-state enable
+/configure service vprn "VPN-FULL" service-id 400
+/configure service vprn "VPN-FULL" customer "1"
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 route-distinguisher "192.0.2.4:400"
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 vrf-target community "target:64512:400"
+/configure service vprn "VPN-FULL" segment-routing-v6 1 locator "FULL" function end-dt6
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 source-address 2001:db8:47::4
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 resolution fallback-tunnel-to-route-table
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 srv6 instance 1
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 srv6 default-locator "FULL"
+/configure service vprn "VPN-FULL" interface "HOST" ipv6 address 2001:db8:400:4::1 prefix-length 64
+/configure policy-options community "RT400" member "target:64512:400"
+/configure policy-options community "C400" member "color:00:201"
+/configure policy-options policy-statement "EXPORT400" default-action action-type accept
+/configure policy-options policy-statement "EXPORT400" default-action community add ["RT400" "C400"]
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 vrf-export policy ["EXPORT400"]
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 admin-state enable
+/configure service vprn "VPN-FULL" interface "HOST" sap 1/1/c3/1:400
+/configure service vprn "VPN-FULL" interface "HOST" admin-state enable
+/configure service vprn "VPN-FULL" admin-state enable
+/configure service vprn "VPN-USID" service-id 500
+/configure service vprn "VPN-USID" customer "1"
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 route-distinguisher "192.0.2.4:500"
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 vrf-target community "target:64512:500"
+/configure service vprn "VPN-USID" segment-routing-v6 1 micro-segment-locator "MICRO" function udt6
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 source-address 2001:db8:47::4
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 resolution fallback-tunnel-to-route-table
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 srv6 instance 1
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 srv6 default-locator "MICRO"
+/configure service vprn "VPN-USID" interface "HOST" ipv6 address 2001:db8:500:4::1 prefix-length 64
+/configure policy-options community "RT500" member "target:64512:500"
+/configure policy-options community "C500" member "color:00:301"
+/configure policy-options policy-statement "EXPORT500" default-action action-type accept
+/configure policy-options policy-statement "EXPORT500" default-action community add ["RT500" "C500"]
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 vrf-export policy ["EXPORT500"]
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 admin-state enable
+/configure service vprn "VPN-USID" interface "HOST" sap 1/1/c3/1:500
+/configure service vprn "VPN-USID" interface "HOST" admin-state enable
+/configure service vprn "VPN-USID" admin-state enable
+commit
+exit all
+show router bgp summary
+show service service-using
+logout

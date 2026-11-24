@@ -1,0 +1,6 @@
+/lab/*.log
+/lab/*.pcap
+/lab/*.json
+/lab/clab-*/
+/lab/*.key
+/lab/.env

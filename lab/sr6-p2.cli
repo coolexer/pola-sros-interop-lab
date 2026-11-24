@@ -1,0 +1,65 @@
+environment more false
+configure exclusive
+/configure card 1 mda 1 xconnect mac 1 loopback 2
+/configure port 1/1/m1/2 admin-state enable
+/configure port-xc pxc 2 port-id 1/1/m1/2
+/configure port-xc pxc 2 admin-state enable
+/configure port pxc-2.a admin-state enable
+/configure port pxc-2.b admin-state enable
+/configure fwd-path-ext fpe 2 path pxc 2
+/configure fwd-path-ext fpe 2 application srv6 type termination
+/configure router "Base" segment-routing segment-routing-v6 source-address 2001:db8:47:0::3
+/configure router "Base" segment-routing segment-routing-v6 locator "FULL" block-length 48
+/configure router "Base" segment-routing segment-routing-v6 locator "FULL" function-length 16
+/configure router "Base" segment-routing segment-routing-v6 locator "FULL" prefix ip-prefix 2001:db8:471:3::/64
+/configure router "Base" segment-routing segment-routing-v6 locator "FULL" static-function max-entries 16
+/configure router "Base" segment-routing segment-routing-v6 locator "FULL" termination-fpe [2]
+/configure router "Base" segment-routing segment-routing-v6 base-routing-instance locator "FULL" function end 1 srh-mode usp
+/configure router "Base" segment-routing segment-routing-v6 locator "FULL" admin-state enable
+/configure router "Base" isis 0 segment-routing-v6 locator "FULL" multi-topology mt0
+/configure router "Base" isis 0 segment-routing-v6 admin-state enable
+/configure router "Base" isis 0 traffic-engineering-options ipv6 true
+/configure router "Base" mpls-labels reserved-label-block "USID-LABEL" start-label 25100
+/configure router "Base" mpls-labels reserved-label-block "USID-LABEL" end-label 25355
+/configure router "Base" segment-routing segment-routing-v6 micro-segment argument-length 16
+/configure router "Base" segment-routing segment-routing-v6 micro-segment block "USID" prefix ip-prefix fd47:4700::/32
+/configure router "Base" segment-routing segment-routing-v6 micro-segment block "USID" label-block "USID-LABEL"
+/configure router "Base" segment-routing segment-routing-v6 micro-segment block "USID" static-function max-entries 16
+/configure router "Base" segment-routing segment-routing-v6 micro-segment block "USID" termination-fpe [2]
+/configure router "Base" segment-routing segment-routing-v6 micro-segment block "USID" admin-state enable
+/configure router "Base" segment-routing segment-routing-v6 micro-segment-locator "MICRO" block "USID"
+/configure router "Base" segment-routing segment-routing-v6 micro-segment-locator "MICRO" un value 3
+/configure router "Base" segment-routing segment-routing-v6 micro-segment-locator "MICRO" un srh-mode usp
+/configure router "Base" segment-routing segment-routing-v6 micro-segment-locator "MICRO" admin-state enable
+/configure router "Base" isis 0 segment-routing-v6 micro-segment-locator "MICRO"
+/configure router "Base" rsvp admin-state disable
+/configure router "Base" rsvp interface "system" admin-state disable
+/configure router "Base" mpls interface "system" admin-state enable
+/configure router "Base" mpls admin-state enable
+/configure router "Base" segment-routing segment-routing-v6 base-routing-instance locator "FULL" function end-x 2 srh-mode usp
+/configure router "Base" segment-routing segment-routing-v6 base-routing-instance locator "FULL" function end-x 2 interface-name "to-pe1"
+/configure router "Base" segment-routing segment-routing-v6 base-routing-instance micro-segment-locator "MICRO" function ua 1 protection unprotected
+/configure router "Base" segment-routing segment-routing-v6 base-routing-instance micro-segment-locator "MICRO" function ua 1 interface-name "to-pe1"
+/configure router "Base" rsvp interface "to-pe1" admin-state disable
+/configure router "Base" mpls interface "to-pe1" admin-state enable
+/configure router "Base" mpls interface "to-pe1" te-metric 5
+/configure router "Base" segment-routing segment-routing-v6 base-routing-instance locator "FULL" function end-x 3 srh-mode usp
+/configure router "Base" segment-routing segment-routing-v6 base-routing-instance locator "FULL" function end-x 3 interface-name "to-pe2"
+/configure router "Base" segment-routing segment-routing-v6 base-routing-instance micro-segment-locator "MICRO" function ua 2 protection unprotected
+/configure router "Base" segment-routing segment-routing-v6 base-routing-instance micro-segment-locator "MICRO" function ua 2 interface-name "to-pe2"
+/configure router "Base" rsvp interface "to-pe2" admin-state disable
+/configure router "Base" mpls interface "to-pe2" admin-state enable
+/configure router "Base" mpls interface "to-pe2" te-metric 90
+/configure router "Base" segment-routing segment-routing-v6 base-routing-instance locator "FULL" function end-x 4 srh-mode usp
+/configure router "Base" segment-routing segment-routing-v6 base-routing-instance locator "FULL" function end-x 4 interface-name "to-p1"
+/configure router "Base" segment-routing segment-routing-v6 base-routing-instance micro-segment-locator "MICRO" function ua 3 protection unprotected
+/configure router "Base" segment-routing segment-routing-v6 base-routing-instance micro-segment-locator "MICRO" function ua 3 interface-name "to-p1"
+/configure router "Base" rsvp interface "to-p1" admin-state disable
+/configure router "Base" mpls interface "to-p1" admin-state enable
+/configure router "Base" mpls interface "to-p1" te-metric 5
+commit
+exit all
+show port-xc
+show router segment-routing-v6 local-sid
+show router segment-routing-v6 micro-segment-local-sid
+logout

@@ -1,0 +1,24 @@
+PING 203.0.113.66 (203.0.113.66): 56 data bytes
+64 bytes from 203.0.113.66: seq=0 ttl=62 time=6.264 ms
+64 bytes from 203.0.113.66: seq=1 ttl=62 time=5.714 ms
+64 bytes from 203.0.113.66: seq=2 ttl=62 time=5.750 ms
+
+--- 203.0.113.66 ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max = 5.714/5.909/6.264 ms
+PING 2001:db8:400:4::2 (2001:db8:400:4::2): 56 data bytes
+64 bytes from 2001:db8:400:4::2: seq=0 ttl=62 time=6.452 ms
+64 bytes from 2001:db8:400:4::2: seq=1 ttl=62 time=7.097 ms
+64 bytes from 2001:db8:400:4::2: seq=2 ttl=62 time=6.659 ms
+
+--- 2001:db8:400:4::2 ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max = 6.452/6.736/7.097 ms
+PING 2001:db8:500:4::2 (2001:db8:500:4::2): 56 data bytes
+64 bytes from 2001:db8:500:4::2: seq=0 ttl=62 time=17.100 ms
+64 bytes from 2001:db8:500:4::2: seq=1 ttl=62 time=12.848 ms
+64 bytes from 2001:db8:500:4::2: seq=2 ttl=62 time=7.658 ms
+
+--- 2001:db8:500:4::2 ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max = 7.658/12.535/17.100 ms

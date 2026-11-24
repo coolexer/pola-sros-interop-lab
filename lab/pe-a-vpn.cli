@@ -1,0 +1,67 @@
+environment more false
+configure exclusive
+/configure router "Base" mpls-labels reserved-label-block "SRV6-FULL" start-label 26000
+/configure router "Base" mpls-labels reserved-label-block "SRV6-FULL" end-label 26063
+/configure router "Base" mpls-labels reserved-label-block "SRV6-MICRO" start-label 26100
+/configure router "Base" mpls-labels reserved-label-block "SRV6-MICRO" end-label 26163
+/configure router "Base" segment-routing segment-routing-v6 locator "FULL" label-block "SRV6-FULL"
+/configure router "Base" segment-routing segment-routing-v6 micro-segment block "USID" label-block "SRV6-MICRO"
+/configure router "Base" pcep pcc local-address 198.18.1.1
+/configure router "Base" pcep pcc peer 2001:db8:47:10::2 admin-state disable
+/configure router "Base" pcep pcc peer 198.18.1.2 admin-state enable
+/configure router "Base" bgp group "VPN4" peer-as 64512
+/configure router "Base" bgp group "VPN4" family vpn-ipv4 true
+/configure router "Base" bgp neighbor 192.0.2.4 group "VPN4"
+/configure router "Base" bgp neighbor 192.0.2.4 local-address 192.0.2.1
+/configure router "Base" bgp group "VPN6" peer-as 64512
+/configure router "Base" bgp group "VPN6" family vpn-ipv6 true
+/configure router "Base" bgp group "VPN6" advertise-ipv6-next-hops vpn-ipv6 true
+/configure router "Base" bgp neighbor 2001:db8:47::4 group "VPN6"
+/configure router "Base" bgp neighbor 2001:db8:47::4 local-address 2001:db8:47::1
+/configure service vprn "VPN-MPLS" service-id 300
+/configure service vprn "VPN-MPLS" customer "1"
+/configure service vprn "VPN-MPLS" bgp-ipvpn mpls route-distinguisher "192.0.2.1:300"
+/configure service vprn "VPN-MPLS" bgp-ipvpn mpls vrf-target community "target:64512:300"
+/configure service vprn "VPN-MPLS" bgp-ipvpn mpls auto-bind-tunnel resolution filter
+/configure service vprn "VPN-MPLS" bgp-ipvpn mpls auto-bind-tunnel resolution-filter sr-isis true
+/configure service vprn "VPN-MPLS" bgp-ipvpn mpls auto-bind-tunnel resolution-filter sr-policy true
+/configure service vprn "VPN-MPLS" interface "HOST" ipv4 primary address 203.0.113.1
+/configure service vprn "VPN-MPLS" interface "HOST" ipv4 primary prefix-length 26
+/configure service vprn "VPN-MPLS" bgp-ipvpn mpls admin-state enable
+/configure service vprn "VPN-MPLS" interface "HOST" sap 1/1/c3/1:300
+/configure service vprn "VPN-MPLS" interface "HOST" admin-state enable
+/configure service vprn "VPN-MPLS" admin-state enable
+/configure service vprn "VPN-FULL" service-id 400
+/configure service vprn "VPN-FULL" customer "1"
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 route-distinguisher "192.0.2.1:400"
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 vrf-target community "target:64512:400"
+/configure service vprn "VPN-FULL" segment-routing-v6 1 locator "FULL" function end-dt6
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 source-address 2001:db8:47::1
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 resolution fallback-tunnel-to-route-table
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 srv6 instance 1
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 srv6 default-locator "FULL"
+/configure service vprn "VPN-FULL" interface "HOST" ipv6 address 2001:db8:400:1::1 prefix-length 64
+/configure service vprn "VPN-FULL" bgp-ipvpn segment-routing-v6 1 admin-state enable
+/configure service vprn "VPN-FULL" interface "HOST" sap 1/1/c3/1:400
+/configure service vprn "VPN-FULL" interface "HOST" admin-state enable
+/configure service vprn "VPN-FULL" admin-state enable
+/configure service vprn "VPN-USID" service-id 500
+/configure service vprn "VPN-USID" customer "1"
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 route-distinguisher "192.0.2.1:500"
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 vrf-target community "target:64512:500"
+/configure service vprn "VPN-USID" segment-routing-v6 1 micro-segment-locator "MICRO" function udt6
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 source-address 2001:db8:47::1
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 resolution fallback-tunnel-to-route-table
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 srv6 instance 1
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 srv6 default-locator "MICRO"
+/configure service vprn "VPN-USID" interface "HOST" ipv6 address 2001:db8:500:1::1 prefix-length 64
+/configure service vprn "VPN-USID" bgp-ipvpn segment-routing-v6 1 admin-state enable
+/configure service vprn "VPN-USID" interface "HOST" sap 1/1/c3/1:500
+/configure service vprn "VPN-USID" interface "HOST" admin-state enable
+/configure service vprn "VPN-USID" admin-state enable
+commit
+exit all
+show router bgp summary
+show service service-using
+show router pcep pcc peer
+logout

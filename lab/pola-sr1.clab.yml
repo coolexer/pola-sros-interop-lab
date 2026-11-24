@@ -1,0 +1,57 @@
+name: pola-sr1
+mgmt:
+  network: pola-sr1-mgmt
+  ipv4-subnet: 172.30.47.0/24
+topology:
+  kinds:
+    nokia_srsim:
+      type: sr-1
+      image: registry.srlinux.dev/pub/nokia_srsim:26.10.R1
+      license: ${SRSIM_LICENSE}
+    linux:
+      image: alpine:3.23
+  nodes:
+    pe-a:
+      kind: nokia_srsim
+      mgmt-ipv4: 172.30.47.11
+      startup-config: pe-a.partial.txt
+    pe-b:
+      kind: nokia_srsim
+      mgmt-ipv4: 172.30.47.12
+      startup-config: pe-b.partial.txt
+    p1:
+      kind: nokia_srsim
+      mgmt-ipv4: 172.30.47.13
+      startup-config: p1.partial.txt
+    p2:
+      kind: nokia_srsim
+      mgmt-ipv4: 172.30.47.14
+      startup-config: p2.partial.txt
+    pola:
+      kind: linux
+      image: ghcr.io/nttcom/pola:v1.4.0@sha256:4d4249af4fd17818230bb94ba2693820ce670265fa5fb0a798f766bf7767b781
+      mgmt-ipv4: 172.30.47.20
+      binds:
+        - polad.yaml:/pola/polad.yaml:ro
+    gobgp:
+      kind: linux
+      mgmt-ipv4: 172.30.47.21
+      cmd: sleep infinity
+      binds:
+        - gobgpd.yaml:/lab/gobgpd.yaml:ro
+    host-a:
+      kind: linux
+      cmd: sleep infinity
+    host-b:
+      kind: linux
+      cmd: sleep infinity
+  links:
+    - endpoints: ["pe-a:1/1/c1/1", "p1:1/1/c1/1"]
+    - endpoints: ["p1:1/1/c2/1", "pe-b:1/1/c1/1"]
+    - endpoints: ["pe-a:1/1/c2/1", "p2:1/1/c1/1"]
+    - endpoints: ["p2:1/1/c2/1", "pe-b:1/1/c2/1"]
+    - endpoints: ["p1:1/1/c3/1", "p2:1/1/c3/1"]
+    - endpoints: ["pe-a:1/1/c3/1", "host-a:eth1"]
+    - endpoints: ["pe-b:1/1/c3/1", "host-b:eth1"]
+    - endpoints: ["pe-a:1/1/c4/1", "pola:eth1"]
+    - endpoints: ["pe-b:1/1/c4/1", "gobgp:eth1"]

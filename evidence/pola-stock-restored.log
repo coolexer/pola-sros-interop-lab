@@ -1,0 +1,37 @@
+Session #0: 198.18.1.1
+  State:             up
+  LSP-DB Sync:       finished
+  Role:              active-stateful-pce
+  Up Time:           00:00:01
+  Session ID:        Local=3, Peer=6
+  Transport:         tcp, auth=none
+  Timers:
+               Local  Peer  Effective
+    Keepalive  30     30    30
+    DeadTimer  120    120   120
+  Capabilities:
+    Common:
+      STATEFUL-PCE-CAPABILITY [RFC8231/8281]: Stateful, Update, Instantiation
+      SR-PCE-CAPABILITY [RFC8664]: SR
+      SRv6-PCE-CAPABILITY [RFC9603]: SRv6
+      PATH-SETUP-TYPE-CAPABILITY [RFC8408]: SR-TE, SRv6-TE
+      ASSOC-TYPE-LIST [RFC8697]:
+        SR Policy Association (0x0006) [RFC9862]
+      MULTIPATH-CAP [draft-ietf-pce-multipath]: Multipath
+    Local only:
+      STATEFUL-PCE-CAPABILITY [RFC8231/8281]: Color
+      SR-PCE-CAPABILITY [RFC8664]: Unlimited-SID-Depth
+      MULTIPATH-CAP [draft-ietf-pce-multipath]: MaxMultipaths=1
+    Peer only:
+      SR-PCE-CAPABILITY [RFC8664]: MSD=11, SR-NAI-Supported
+      SRv6-PCE-CAPABILITY [RFC9603]: SRH-Max-SL=10, SRH-Max-End-Pop=9, SRH-Max-H-Encaps=7, SRH-Max-End-D=9
+      ASSOC-TYPE-LIST [RFC8697]:
+        Disjoint Association (0x0002) [RFC8800]
+        Policy Association (0x0003) [RFC9005]
+      MULTIPATH-CAP [draft-ietf-pce-multipath]: MaxMultipaths=32, Weighted
+      Unrecognized TLVs:
+        type=24: SPEAKER-ENTITY-ID (RFC8232)
+        type=29: OPERATOR-CONFIGURED-ASSOCIATION-RANGE (RFC8697)
+        type=71: SRPOLICY-CAPABILITY (RFC9862)
+        type=101: unassigned/vendor-specific, no RFC
+        type=114: unassigned/vendor-specific, no RFC

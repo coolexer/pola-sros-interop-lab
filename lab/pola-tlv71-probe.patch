@@ -1,0 +1,11 @@
+diff --git a/pkg/packet/pcep/capability.go b/pkg/packet/pcep/capability.go
+--- a/pkg/packet/pcep/capability.go
++++ b/pkg/packet/pcep/capability.go
+@@ -80,6 +80,7 @@ func DefaultCapabilities() []CapabilityInterface {
+ 		polaStatefulCapability(),
+ 		polaPathSetupTypeCapability(),
+ 		polaAssocTypeList(),
++		&UnknownTLV{Typ: TLVSRPolicyCapability, Value: make([]byte, 4)},
+ 		polaMultipathCapability(),
+ 	}
+ }

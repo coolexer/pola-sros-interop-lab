@@ -1,0 +1,14 @@
+global:
+  config:
+    as: 64512
+    router-id: 198.18.2.2
+neighbors:
+  - config:
+      neighbor-address: 198.18.2.1
+      peer-as: 64512
+    transport:
+      config:
+        local-address: 198.18.2.2
+    afi-safis:
+      - config:
+          afi-safi-name: ls

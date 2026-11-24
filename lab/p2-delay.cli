@@ -1,0 +1,9 @@
+environment more false
+configure exclusive
+/configure router "Base" interface "to-pe1" if-attribute delay static 1000
+/configure router "Base" interface "to-pe2" if-attribute delay static 1000
+/configure router "Base" interface "to-p1" if-attribute delay static 20000
+commit
+exit all
+show router isis database detail
+logout

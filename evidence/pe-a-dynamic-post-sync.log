@@ -1,0 +1,140 @@
+A:admin@pe-a# environment more false
+
+[/]
+A:admin@pe-a# configure exclusive
+INFO: CLI #2060: Entering exclusive configuration mode
+INFO: CLI #2061: Uncommitted changes are discarded on configuration mode exit
+
+[ex:/configure]
+A:admin@pe-a# /configure router "Base" segment-routing sr-policies static-policy "DYNAMIC103" admin-state disable
+
+*[ex:/configure]
+A:admin@pe-a# commit
+
+[ex:/configure]
+A:admin@pe-a# /configure router "Base" segment-routing sr-policies static-policy "DYNAMIC103" admin-state enable
+
+*[ex:/configure]
+A:admin@pe-a# commit
+
+[ex:/configure]
+A:admin@pe-a# exit all
+INFO: CLI #2064: Exiting exclusive configuration mode
+
+[/]
+A:admin@pe-a# show router segment-routing sr-policies all
+
+===============================================================================
+SR-Policies Path
+===============================================================================
+-------------------------------------------------------------------------------
+Type            : srMpls
+Active          : Yes                   Owner           : static
+Operational     : Yes
+Color           : 101
+Head            : 0.0.0.0               Endpoint Addr   : 192.0.2.4
+RD              : 101                   Preference      : 100
+BSID            : 24501
+TunnelId        : 917518                Age             : 129
+Origin ASN      : 0                     Origin          : 0.0.0.0
+NumReEval       : 0                     LastReEvalReason: none
+NumActPathChange: 0                     Last Change     : 11/24/2026 22:34:34
+Maintenance Plcy:
+Ret Path BFD Lbl:
+
+Path Segment Lists:
+Segment-List    : 1                     Weight          : 1
+Num Segments    : 2                     Last Change     : 11/24/2026 22:16:06
+  1 MPLS Label  : 16003                 State           : resolved-up
+  2 MPLS Label  : 16004                 State           : N/A
+
+-------------------------------------------------------------------------------
+Type            : srMpls
+Active          : Yes                   Owner           : static
+Operational     : Yes
+Color           : 102
+Head            : 0.0.0.0               Endpoint Addr   : 2001:db8:47::4
+RD              : 102                   Preference      : 100
+BSID            : 24502
+TunnelId        : 917509                Age             : 1006
+Origin ASN      : 0                     Origin          : 0.0.0.0
+NumReEval       : 0                     LastReEvalReason: none
+NumActPathChange: 0                     Last Change     : 11/24/2026 22:19:57
+Maintenance Plcy:
+Ret Path BFD Lbl:
+
+Path Segment Lists:
+Segment-List    : 1                     Weight          : 1
+Num Segments    : 2                     Last Change     : 11/24/2026 22:16:06
+  1 MPLS Label  : 16003                 State           : resolved-up
+  2 MPLS Label  : 16004                 State           : N/A
+
+-------------------------------------------------------------------------------
+Type            : srMpls
+Active          : Yes                   Owner           : static
+Operational     : Yes
+Color           : 103
+Head            : 0.0.0.0               Endpoint Addr   : 192.0.2.4
+RD              : 103                   Preference      : 100
+BSID            : 24503
+TunnelId        : 917520                Age             : 0
+Origin ASN      : 0                     Origin          : 0.0.0.0
+NumReEval       : 0                     LastReEvalReason: none
+NumActPathChange: 0                     Last Change     : 11/24/2026 22:36:43
+Maintenance Plcy:
+Ret Path BFD Lbl:
+
+Path Segment Lists:
+Segment-List    : 1                     Weight          : 1
+Num Segments    : 2                     Last Change     : 11/24/2026 22:16:06
+  1 MPLS Label  : 16002                 State           : resolved-up
+  2 MPLS Label  : 16004                 State           : N/A
+
+-------------------------------------------------------------------------------
+Type            : srv6
+Active          : Yes                   Owner           : static
+Operational     : Yes
+Color           : 201
+Head            : 0.0.0.0               Endpoint Addr   : 2001:db8:47::4
+RD              : 201                   Preference      : 100
+SRv6 BSID 1     : 2001:db8:471:1:41::
+TunnelId        : 917517                Age             : 130
+Origin ASN      : 0                     Origin          : 0.0.0.0
+NumReEval       : 0                     LastReEvalReason: none
+NumActPathChange: 0                     Last Change     : 11/24/2026 22:34:34
+Maintenance Plcy:
+Ret Path BFD SID:
+
+Path Segment Lists:
+Segment-List    : 1                     Weight          : 1
+Num Segments    : 1                     Last Change     : 11/24/2026 22:16:06
+  1 SRv6 SID  : 2001:db8:471:3:1::                       State : resolved-up
+
+-------------------------------------------------------------------------------
+Type            : srv6
+Active          : Yes                   Owner           : static
+Operational     : Yes
+Color           : 301
+Head            : 0.0.0.0               Endpoint Addr   : 2001:db8:47::4
+RD              : 301                   Preference      : 100
+SRv6 BSID 1     : fd47:4700:1:4040::
+TunnelId        : 917519                Age             : 130
+Origin ASN      : 0                     Origin          : 0.0.0.0
+NumReEval       : 0                     LastReEvalReason: none
+NumActPathChange: 0                     Last Change     : 11/24/2026 22:34:34
+Maintenance Plcy:
+Ret Path BFD SID:
+
+Path Segment Lists:
+Segment-List    : 1                     Weight          : 1
+Num Segments    : 1                     Last Change     : 11/24/2026 22:16:06
+  1 SRv6 SID  : fd47:4700:3::                            State : resolved-up
+    Behavior & Structure
+     Behavior   : 43                    Block Length    : 32
+     Node Length: 16                    Function Length : 0
+
+===============================================================================
+
+[/]
+A:admin@pe-a# logout
+Connection to 172.30.47.11 closed.

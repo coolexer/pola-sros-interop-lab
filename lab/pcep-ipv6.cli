@@ -1,0 +1,10 @@
+environment more false
+configure exclusive
+/configure router "Base" pcep pcc peer 198.18.1.2 admin-state disable
+/configure router "Base" pcep pcc local-address 2001:db8:47:10::1
+/configure router "Base" pcep pcc peer 2001:db8:47:10::2 route-preference inband
+/configure router "Base" pcep pcc peer 2001:db8:47:10::2 admin-state enable
+commit
+exit all
+show router pcep pcc peer detail
+logout

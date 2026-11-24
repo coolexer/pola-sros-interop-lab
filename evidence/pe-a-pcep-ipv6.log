@@ -1,0 +1,99 @@
+A:admin@pe-a# environment more false
+
+[/]
+A:admin@pe-a# configure exclusive
+INFO: CLI #2060: Entering exclusive configuration mode
+INFO: CLI #2061: Uncommitted changes are discarded on configuration mode exit
+
+[ex:/configure]
+A:admin@pe-a# /configure router "Base" pcep pcc peer 198.18.1.2 admin-state disable
+
+*[ex:/configure]
+A:admin@pe-a# /configure router "Base" pcep pcc local-address 2001:db8:47:10::1
+                                                              ^^^^^^^^^^^^^^^^^
+MINOR: MGMT_CORE #2301: Invalid element value - 'local-address' - unsupported address type ipv6
+
+*[ex:/configure]
+A:admin@pe-a# /configure router "Base" pcep pcc peer 2001:db8:47:10::2 route-preference inband
+
+*[ex:/configure]
+A:admin@pe-a# /configure router "Base" pcep pcc peer 2001:db8:47:10::2 admin-state enable
+
+*[ex:/configure]
+A:admin@pe-a# commit
+
+[ex:/configure]
+A:admin@pe-a# exit all
+INFO: CLI #2064: Exiting exclusive configuration mode
+
+[/]
+A:admin@pe-a# show router pcep pcc peer detail
+
+===============================================================================
+PCEP Path Computation Client (PCC) Peer Info
+===============================================================================
+IP Address            : 198.18.1.2      Preference              : 0
+Admin Status          : Down            Oper Status             : Down
+Peer Capabilities     : association multipath
+Speaker ID            : (Undefined)
+Sync State            : not-initialized Peer Overloaded         : False
+Session Establish Time: 0d 00:00:00
+Oper Keepalive        : N/A             Oper DeadTimer          : N/A
+Tls Profile           : (Not Specified)
+TLS WaitTimer         : N/A
+Auth key chain        : (Not Specified)
+Route Preference      : inband
+Session Setup Count   : 1               Session Setup Fail Count: 0
+
+-------------------------------------------------------------------------------
+Statistics Information
+-------------------------------------------------------------------------------
+                              Sent                     Received
+-------------------------------------------------------------------------------
+PC Request Message            0                        0
+PC Reply Message              0                        0
+PC Error Message              0                        0
+PC Notification Message       0                        0
+PC Keepalive Message          0                        0
+PC Update Message             0                        0
+PC Initiate Message           0                        0
+PC Report Message             0                        0
+Path Report                   0                        0
+Path Request                  0                        0
+-------------------------------------------------------------------------------
+
+IP Address            : 2001:db8:47:10* Preference              : 0
+Admin Status          : Up              Oper Status             : Down
+Peer Capabilities     : (Not Specified)
+Speaker ID            : (Undefined)
+Sync State            : not-initialized Peer Overloaded         : False
+Session Establish Time: 0d 00:00:00
+Oper Keepalive        : N/A             Oper DeadTimer          : N/A
+Tls Profile           : (Not Specified)
+TLS WaitTimer         : N/A
+Auth key chain        : (Not Specified)
+Route Preference      : inband
+Session Setup Count   : 0               Session Setup Fail Count: 0
+
+-------------------------------------------------------------------------------
+Statistics Information
+-------------------------------------------------------------------------------
+                              Sent                     Received
+-------------------------------------------------------------------------------
+PC Request Message            0                        0
+PC Reply Message              0                        0
+PC Error Message              0                        0
+PC Notification Message       0                        0
+PC Keepalive Message          0                        0
+PC Update Message             0                        0
+PC Initiate Message           0                        0
+PC Report Message             0                        0
+Path Report                   0                        0
+Path Request                  0                        0
+-------------------------------------------------------------------------------
+===============================================================================
+* indicates that the corresponding row element may have been truncated.
+
+[/]
+A:admin@pe-a# logout
+Connection to 172.30.47.11 closed.

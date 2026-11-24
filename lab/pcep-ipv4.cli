@@ -1,0 +1,14 @@
+environment more false
+configure exclusive
+/configure router "Base" pcep pcc local-address 198.18.1.1
+/configure router "Base" pcep pcc capability-advertisement sr-policy true
+/configure router "Base" pcep pcc capability-advertisement multi-path true
+/configure router "Base" pcep pcc capability-advertisement srv6 true
+/configure router "Base" pcep pcc peer 198.18.1.2 route-preference inband
+/configure router "Base" pcep pcc peer 198.18.1.2 admin-state enable
+/configure router "Base" pcep pcc admin-state enable
+commit
+exit all
+show router pcep pcc peer
+show router isis adjacency
+logout

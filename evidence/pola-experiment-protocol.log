@@ -1,0 +1,8 @@
+{"level":"info","ts":1795559798.0083218,"msg":"start listening on PCEP port","address":"[::]:14189"}
+{"level":"info","ts":1795559798.0943465,"msg":"Start listening on gRPC port","server":"grpc","listenInfo":"127.0.0.1:50053"}
+{"level":"info","ts":1795559800.7069752,"msg":"start PCEP session","server":"pcep","session":"198.18.1.1"}
+{"level":"error","ts":1795559800.9886293,"msg":"Failed to register SR Policy during synchronization","server":"pcep","session":"198.18.1.1","error":"SegmentList is empty for PlspID 1","plspID":1}
+{"level":"warn","ts":1795559800.9905252,"msg":"Failed to handle state report","server":"pcep","session":"198.18.1.1","plspID":1,"error":"SegmentList is empty for PlspID 1"}
+{"level":"info","ts":1795559802.3821206,"msg":"Received GetSRPolicyList API request","server":"grpc"}
+{"level":"info","ts":1795559808.490773,"msg":"Received GetSRPolicyList API request","server":"grpc"}
+{"level":"info","ts":1795559809.081054,"msg":"Received GetSessionList API request","server":"grpc"}
