@@ -4,37 +4,9 @@ A reproducible Containerlab test of PCEP, BGP-LS, and Segment Routing with **Pol
 
 [Run the lab](lab/README.md) · [Test results and packet captures](evidence/README.md) · [Containerlab topology](lab/pola-sr1.clab.yml)
 
-## Results at a glance
-
-| Test | Observed result |
-| --- | --- |
-| **PCEP and BGP-LS** | IPv4 PCEP established and resynchronized with stock Pola. BGP-LS populated Pola's TED with four routers and ten directed links. The TED tracked link removal and restoration. |
-| **SR-MPLS path computation** | Pola computed IGP, TE, and hop-count paths for IPv4 and IPv6. An explicit waypoint selected P2. Losing the P1–PE-B link moved the IGP path to P2. |
-| **Nokia data plane** | Host traffic passed over SR-MPLS, SRv6 full SIDs, and SRv6 uSIDs. The captures show traffic moving from P1 to P2 after local policies were enabled. |
-| **SR Policy interoperability** | Stock Pola retained zero SR policies. With the [TLV 71 experiment](lab/pola-tlv71-probe.patch), Pola learned four Nokia policies. After sync, re-enabling the delegated MPLS policy elicited a PCUpd and Nokia confirmed the new path as active. |
-
 ## Topology
 
-```mermaid
-flowchart LR
-    HA["Host A"] --- A["Nokia PE-A<br/>SR-1 FP4"]
-    A --- P1["Nokia P1<br/>SR-1 FP4"]
-    A --- P2["Nokia P2<br/>SR-1 FP4"]
-    P1 --- B["Nokia PE-B<br/>SR-1 FP4"]
-    P2 --- B
-    P1 -.- P2
-    B --- HB["Host B"]
-    A -->|PCEP · TCP 4189| POLA["Pola<br/>v1.4.0"]
-    B -->|BGP-LS · TCP 179| BGP["GoBGP<br/>v4.0.0"]
-    BGP -.->|TED · gRPC| POLA
-
-    classDef router fill:#e8f1ff,stroke:#3469b3,color:#122b4f,stroke-width:2px
-    classDef controller fill:#e4f5ed,stroke:#27816b,color:#123e34,stroke-width:2px
-    classDef host fill:#eef1f6,stroke:#738096,color:#202d40
-    class A,P1,P2,B router
-    class POLA,BGP controller
-    class HA,HB host
-```
+![Lab topology with four Nokia SR-1 routers in a diamond, host access links, and separate PCEP, BGP-LS, and gRPC connections](docs/topology.png)
 
 The router links, including P1–P2, carry IS-IS and user traffic. PE-A is the PCEP client. PE-B exports BGP-LS to GoBGP, and Pola reads GoBGP's topology over gRPC.
 
@@ -43,6 +15,15 @@ The router links, including P1–P2, carry IS-IS and user traffic. PE-A is the P
 | 300 | SR-MPLS VPN | 101 |
 | 400 | SRv6 VPN with full SIDs | 201 |
 | 500 | SRv6 VPN with uSIDs | 301 |
+
+## Results at a glance
+
+| Test | Observed result |
+| --- | --- |
+| **PCEP and BGP-LS** | IPv4 PCEP established and resynchronized with stock Pola. BGP-LS populated Pola's TED with four routers and ten directed links. The TED tracked link removal and restoration. |
+| **SR-MPLS path computation** | Pola computed IGP, TE, and hop-count paths for IPv4 and IPv6. An explicit waypoint selected P2. Losing the P1–PE-B link moved the IGP path to P2. |
+| **Nokia data plane** | Host traffic passed over SR-MPLS, SRv6 full SIDs, and SRv6 uSIDs. The captures show traffic moving from P1 to P2 after local policies were enabled. |
+| **SR Policy interoperability** | Stock Pola retained zero SR policies. With the [TLV 71 experiment](lab/pola-tlv71-probe.patch), Pola learned four Nokia policies. After sync, re-enabling the delegated MPLS policy elicited a PCUpd and Nokia confirmed the new path as active. |
 
 ## What the capture proves
 
