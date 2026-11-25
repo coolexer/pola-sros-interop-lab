@@ -16,6 +16,8 @@ Captured on 24 November 2026 with Nokia SR-SIM 26.10.R1, Pola v1.4.0, and GoBGP 
 
 The CSPF probe uses the upstream Pola v1.4.0 library and obtains the TED through the active Pola gRPC API. The GoBGP v4.0.0 diagnostic CLI raised a nil pointer panic while printing the final BGP-LS RIB. The daemon stayed established and Pola returned the TED over gRPC. [GoBGP CLI log](gobgp-cli-final.log) The advertised delay values were static inputs. The ping RTT measures the lab hosts.
 
+The follow-up test runs the upstream PR branch and confirms automatic delegation after sync. [Follow-up capture and frame index](pcep-auto-delegation.md)
+
 ## Inspect the captures
 
 | File | Wireshark display filter | What to look for |
